@@ -10,7 +10,8 @@ from recipes.models import (
     Recipe,
     RecipeIngredient,
     Favorite,
-    ShoppingCart
+    ShoppingCart,
+    MIN_INGREDIENT_AMOUNT
 )
 
 
@@ -139,7 +140,7 @@ class RecipeIngredientCreateSerializer(serializers.Serializer):
     """Сериализатор для ингредиентов при создании/обновлении рецепта."""
 
     id = serializers.IntegerField()
-    amount = serializers.IntegerField(min_value=1)
+    amount = serializers.IntegerField(min_value=MIN_INGREDIENT_AMOUNT)
 
 
 class RecipeShortSerializer(serializers.ModelSerializer):
